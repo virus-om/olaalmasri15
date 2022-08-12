@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-*2kjed$p@y2&39b67*no+__-$d^d*pscimz@=u(qspx%zed7yq
 DEBUG = False
 
 
-ALLOWED_HOSTS=['https://olaalmasri15.herokuapp.com/','127.0.0.1']
+ALLOWED_HOSTS=['https://olaalmasri.herokuapp.com/','127.0.0.1']
 CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_WHITELIST = ('http://localhost:5000',)
 
