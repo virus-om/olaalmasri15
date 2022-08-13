@@ -151,12 +151,16 @@ class Album_View(viewsets.ModelViewSet):
         return JsonResponse({'response': 'image saved'})#, 'images':response['images']})
 
 
+
 class LallubyViewSet(viewsets.ModelViewSet):
     queryset = Lalluby.objects.all()
     serializer_class = LallubySerializer
 
-def lall(request):
-    #pull data from third party rest api
-    response = requests.get('https://olaalmasri.herokuapp.com/send_lalluby/')
-    songs = response.json()
-    return JsonResponse({'response':'ok',"tracks":songs})
+    def get (self ,request  ):
+        lall = Lalluby.objects.all() 
+        serializer = LallSerializer(lall, many = True)
+        lis=[]
+        for s in serializer.data:
+            lis.append(s['file'])
+
+        return JsonResponse({'response':'ok','tracks' : lis})
