@@ -146,7 +146,7 @@ class Album_View(viewsets.ModelViewSet):
         user = Account.objects.get(id=id)
         albums = Album(baby =user , image =request.data['image'] )
         albums.save()
-        # response = requests.get('http://127.0.0.1:8000/album/'+str(id))
+        # response = requests.get('https://olaalmasri.herokuapp.com/album/'+str(id))
         # response = response.json()
         return JsonResponse({'response': 'image saved'})#, 'images':response['images']})
 
@@ -157,6 +157,6 @@ class LallubyViewSet(viewsets.ModelViewSet):
 
 def lall(request):
     #pull data from third party rest api
-    response = requests.get('http://127.0.0.1:8000/send_lalluby/')
+    response = requests.get('https://olaalmasri.herokuapp.com/send_lalluby/')
     songs = response.json()
     return JsonResponse({'response':'ok',"tracks":songs})
