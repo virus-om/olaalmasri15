@@ -8,13 +8,15 @@ from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 router.register('album', Album_View, basename="album")
-router.register('send_lalluby', LallubyViewSet, basename="send_lalluby")
+router.register('lalluby', LallubyViewSet, basename="send_lalluby")
 
 urlpatterns = [
     
 
     path('album/<int:id>', Album_View.as_view({'post': 'post'}) , name='Album_View'),
     path('album/<int:id>', Album_View.as_view({'get': 'get'}) , name='Album_View'),
+
+    path('lalluby', LallubyViewSet.as_view({'get': 'get'}) , name='Album_View'),
 
     path('illnesse/<str:ch>', ill_treat_search_view, name='illnesse'),
     path('feed/<int:id>', feed_view, name='feed'), #age in monthes
